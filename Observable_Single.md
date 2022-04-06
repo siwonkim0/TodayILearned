@@ -6,17 +6,17 @@ Observer(구독자)는 Observable을 감시(구독, Subscribe)하고 있다가 �
 
 # Single
 
-Observable의 변형으로,
-~~Observable처럼 여러 값을 방출하지 않고 : next, error, completed~~
-하나의 값이나 에러를 방출하는 애
-그래서 subscribe할때도 
-Observable처럼 onNext, onError, onCompleted가 아니라
+Observable의 변형으로,  
+~~Observable처럼 여러 값을 방출하지 않고 : next, error, completed~~  
+하나의 값이나 에러를 방출하는 애 
+
+그래서 subscribe할때도   
+Observable처럼 onNext, onError, onCompleted가 아니라  
 onSuccess, onError로 받는다
 
 ### 프로젝트 코드
 
-firebase에서 데이터를 fetch해올때 데이터를 가져오고 나서 single로 감싸서 리턴해준다
-
+firebase에서 데이터를 fetch해올때 데이터를 가져오고 나서 single로 감싸서 리턴해준다  
 그럼 레포에서 single을 구독하고 있고, 전달된 데이터를 빼서 사용한다
 
 ```swift
@@ -24,7 +24,7 @@ class RemoteDataSource {
     let dataBase = Firestore.firestore()
     
     func fetch() -> Single<[Project]> {
-        **return Single.create** **{** single in
+        return Single.create** **{** single in
             self.dataBase
                 .collection("users")
                 .getDocuments { snapshot, error in
@@ -32,13 +32,13 @@ class RemoteDataSource {
                     let projects = snapshot.documents.compactMap { document in
                         Project(document: document.data())
                     }
-										//실제 이벤트를 내보내는 부분
+		//실제 이벤트를 내보내는 부분
                     single(.success(projects))
                 }
             }
-						//Disposable을 만들어 내보냅니다.
-            **return Disposables.create()**
-        **}**
+	//Disposable을 만들어 내보냅니다.
+            return Disposables.create()
+        }
     }
 }
 ```
@@ -51,7 +51,7 @@ final class ProjectRepository: ProjectRepositoryProtocol {
     
     func bindProjects() -> BehaviorRelay<[Project]> {
         remoteDataSource.fetch()
-						.**subscribe(onSuccess:** { fetchedProjects in
+			.subscribe(onSuccess: { fetchedProjects in
             self.projects.accept(fetchedProjects)
         }).disposed(by: disposeBag)
         return projects
@@ -133,7 +133,7 @@ Disposables 구조체를 확장해서 create 메서드를 다양하게 정의해
 ![](https://i.imgur.com/PaVAFcT.png)
 
 파라미터가 없는 create 메서드는 NopDisposable 타입을 리턴하고
-있는 메서드는 AnonymousDisposable 을 리턴한다
+있는 메서드는 AnonymousDisposable을 리턴한다
 
 ![](https://i.imgur.com/Kje8kVR.png)
 
