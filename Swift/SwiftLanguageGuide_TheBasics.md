@@ -18,8 +18,6 @@ print("Hello is \(hello) in French")
 
 문자열 안에 변수나 상수의 값을 나타낼때 쓰이는 \() 이것을 string interpolation이라고 한다. 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67e12f7e-dda4-4c73-b22f-44924aabd676/스크린샷_2021-08-08_오전_2.34.22.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67e12f7e-dda4-4c73-b22f-44924aabd676/스크린샷_2021-08-08_오전_2.34.22.png)
-
 ### Semicolons ;
 
 다른 언어들처럼 코드 뒤에 ;를 붙이라고 하지는 않지만(하고싶으면 할 수는 있음), 여러 개를 한줄에 쓰고 싶으면 ; 뒤에 쓴다.
