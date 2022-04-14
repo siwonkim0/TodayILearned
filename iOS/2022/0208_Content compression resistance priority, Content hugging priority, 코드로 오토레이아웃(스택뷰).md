@@ -2,10 +2,11 @@
 
 줄어들어야하는 상황에서 안줄어들려는 힘 
 두개의 뷰가 있다면, 그 중 저항하는 힘이 약한 뷰가 줄어든다
-저항하는 힘이 세면 안줄어듦
+저항하는 힘이 세
+면 안줄어듦
 
-예시를 보자
-![https://s3.ap-northeast-2.amazonaws.com/media.yagom-academy.kr/resources/usr/6152fa94ccd9ef11a51aee7f/20220209/620337379276e54c1b072947.png](https://s3.ap-northeast-2.amazonaws.com/media.yagom-academy.kr/resources/usr/6152fa94ccd9ef11a51aee7f/20220209/620337379276e54c1b072947.png)
+예시를 보자  
+<img width="553" alt="스크린샷 2022-04-07 오후 12 05 00" src="https://user-images.githubusercontent.com/60725934/162112143-617e6ff4-257a-4181-bb20-5d3e3059e039.png">
 
 저 `날짜 레이블` 2020.12.19 보다 `오른쪽 레이블`이 먼저 줄어들게 하기 위해서는
 
@@ -30,14 +31,13 @@
 ```swift
 label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 ```
-
-![https://s3.ap-northeast-2.amazonaws.com/media.yagom-academy.kr/resources/usr/6152fa94ccd9ef11a51aee7f/20220209/6203458b9276e54c1b072957.png](https://s3.ap-northeast-2.amazonaws.com/media.yagom-academy.kr/resources/usr/6152fa94ccd9ef11a51aee7f/20220209/6203458b9276e54c1b072957.png)
+<img width="590" alt="스크린샷 2022-04-07 오후 12 05 46" src="https://user-images.githubusercontent.com/60725934/162112203-961f4823-c928-4d57-b0d4-9fcf947a9eab.png">
 
 # 오토레이아웃 코드로 구현하기
 
 - 스택뷰를 안썼을때
+<img width="558" alt="스크린샷 2022-04-07 오후 12 06 03" src="https://user-images.githubusercontent.com/60725934/162112229-d7e58b08-581c-4410-a5c4-cb1b6af8be81.png">
 
-![https://s3.ap-northeast-2.amazonaws.com/media.yagom-academy.kr/resources/usr/6152fa94ccd9ef11a51aee7f/20220209/620337379276e54c1b072947.png](https://s3.ap-northeast-2.amazonaws.com/media.yagom-academy.kr/resources/usr/6152fa94ccd9ef11a51aee7f/20220209/620337379276e54c1b072947.png)
 ```swift
 func setConstraints() {
     self.contentView.addSubview(titleLabel)
@@ -73,8 +73,7 @@ dateLabel.setContentCompressionResistancePriority(.init(1000), for: .horizontal)
 ```
 
 - 스택뷰를 활용했을때
-
-![https://s3.ap-northeast-2.amazonaws.com/media.yagom-academy.kr/resources/usr/6152fa94ccd9ef11a51aee7f/20220209/6203458e9276e54c1b072959.png](https://s3.ap-northeast-2.amazonaws.com/media.yagom-academy.kr/resources/usr/6152fa94ccd9ef11a51aee7f/20220209/6203458e9276e54c1b072959.png)
+<img width="556" alt="스크린샷 2022-04-07 오후 12 06 25" src="https://user-images.githubusercontent.com/60725934/162112269-1bbf8c37-489b-4ed1-b853-67c0bfee7027.png">
 
 스택뷰를 쓰지 않고 구현했을때는 모든 레이블 사이의 간격을 신경써줘야했으나, 스택뷰로 하니 가장 상위의 스택뷰와 contentView간의 간격 말고는 신경쓰지 않아도 되어서 훨씬 수월했다.
 
